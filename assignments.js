@@ -52,3 +52,19 @@ const description = 'The ' + country + ' is in ' + continent + ' and its ' + pop
 console.log(description);
 
 console.log('\n-------End Assignment 4: Basic Operators--------');
+
+// Assignment: Strings and Template Literals
+console.log('\n------Begin Assignment 5: Strings and Template Literals --------');
+const description2 = `The ${country} is in ${continent} and its ${population} people speak ${language}.`;
+console.log(description2)
+console.log('------End Assignment 5: Strings and Template Literals------');
+
+// Assignment: if-else statements
+console.log('\n-------Begin Assignment 6: if-else statements------');
+population = 350000000;
+if (population > avgPopulation) {
+    console.log(`The ${country}'s population is above average.`);
+} else {
+    console.log(`The ${country}'s population is ${(avgPopulation - population)} below average`);
+}
+console.log('-------End Assignment 6: if-else statements------');
