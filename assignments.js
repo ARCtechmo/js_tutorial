@@ -68,3 +68,13 @@ if (population > avgPopulation) {
     console.log(`The ${country}'s population is ${(avgPopulation - population)} below average`);
 }
 console.log('-------End Assignment 6: if-else statements------');
+
+// Assignment: Type Conversion and Coercion
+// Predict the results without executing then check your answers
+console.log('\n------Begin Assignment: Type Conversion and Coercion-----------')
+console.log('9' - '5'); // 4
+console.log('19' - '13' + '17'); // 617
+console.log('19' - '13' + 17); // 23
+console.log('123' < 57) // False
+console.log(5 + 6 + '4' + 9 - 4 - 2); // 1143
+console.log('\n------End Assignment: Type Conversion and Coercion-----------')
