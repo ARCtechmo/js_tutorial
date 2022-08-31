@@ -77,4 +77,26 @@ console.log('19' - '13' + '17'); // 617
 console.log('19' - '13' + 17); // 23
 console.log('123' < 57) // False
 console.log(5 + 6 + '4' + 9 - 4 - 2); // 1143
-console.log('\n------End Assignment: Type Conversion and Coercion-----------')
+console.log('\n------End Assignment: Type Conversion and Coercion-----------');
+
+// Assignment: Equality Operators == vs ===
+// Always use the strict equality operator ===
+// const numNeighbours = Number(prompt("How many neighbour countries does you country have?"));
+if (numNeighbours === 1) {
+    console.log('Only 1 border')
+} else if (numNeighbours > 1) {
+    console.log('More than 1 border')
+} else {
+    console.log('numNeighbours is 0 or any other value')
+}
+
+// Assignment: Logical Operators
+questionCountry = prompt('Pick a country');
+questionPop = Number(prompt("What is the population?: "));
+questionIsland = prompt("Is this country an island?: (Y/N): ");
+questionLang = prompt("What is the language?: ");
+if ((questionPop > 25000000) && (questionIsland === 'N' | 'n') && (questionLang === "English" | "english")) {
+    console.log(`You should live in ${questionCountry}.`)
+} else {
+    console.log(`You should not live in ${questionCountry}.`)
+};
