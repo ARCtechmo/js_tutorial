@@ -1,3 +1,5 @@
+'strict mode'
+/*
 // Assignment: Values and Variables
 console.log('-----Begin: Assignment 1: Values and Variables-----');
 
@@ -128,3 +130,26 @@ switch (language) {
 let country = prompt()
 let population = Number(prompt());
 population > 33000000 ? console.log(`${country}'s population is above `) : console.log(`${country}'s population is below.`)
+*/
+
+// Assignment: Functions
+function describeContry(country,population,capitalCity){
+    return `${country} has ${population} people and its capital city is ${capitalCity}.`;
+};
+const varCountry1 = describeContry('Finland','6 million','Helsinki');
+const varCountry2 = describeContry('USA','350 million','Washington, D.C');
+const varCountry3 = describeContry('U.K.','67.22 million','London');
+console.log(varCountry1);
+console.log(varCountry2);
+console.log(varCountry3);
+
+// Assignment: Function Declarions and Expressions
+function percentageOfWorld(population){
+    return Number((population / 7900 ) * 100).toFixed(2);
+};
+const perctCountry1 = percentageOfWorld(1441);
+const perctCountry2 = percentageOfWorld(350);
+const perctCountry3 = percentageOfWorld(67.22);
+console.log(`China has ${perctCountry1} percent of the global population.`);
+console.log(`The USA has ${perctCountry2} percent of the global population.`);
+console.log(`The U.K. has ${perctCountry3} percent of the global population.`);
