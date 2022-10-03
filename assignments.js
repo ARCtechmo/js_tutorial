@@ -153,3 +153,19 @@ const perctCountry3 = percentageOfWorld(67.22);
 console.log(`China has ${perctCountry1} percent of the global population.`);
 console.log(`The USA has ${perctCountry2} percent of the global population.`);
 console.log(`The U.K. has ${perctCountry3} percent of the global population.`);
+
+//Assignment: Arrow Functions
+const percentageOfWorld1 = population =>(population / 7900) * 100;
+const perctCountry4 = percentageOfWorld1(10);
+const perctCountry5 = percentageOfWorld1(1441);
+const perctCountry6 = percentageOfWorld1(332);
+console.log(perctCountry4.toFixed(2));
+console.log(perctCountry5.toFixed(2));
+console.log(perctCountry6.toFixed(2));
+
+// Assignment: functions calling other functions
+const percentageOfWorld2 = population =>((population / 7900 )* 100);
+function describePopulation(country,population){
+    return `${country} has ${(population)} million people, which is about ${(percentageOfWorld2(population)).toFixed(2)} of the world.`
+};
+console.log(describePopulation('China',1411));
