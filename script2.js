@@ -144,6 +144,123 @@ const yearsUntilRetirement9 = function(birthYear, firstName){
 }
 console.log(yearsUntilRetirement9(1991,'John'));
 
+// Arrays
+//Create arrays
+const friends = ['Michael', 'Steven', 'Peter'];
+console.log(friends);
+
+const years = new Array(1991,1984,2008,2032);
+console.log(years);
+
+// retrieve elements from arrays
+// index starts at 0
+console.log(friends[0]);
+console.log(friends[2]);
+
+// get the exact count of elements in the array
+// index starts at 1
+console.log(friends.length);
+console.log(friends.length - 1);
+
+// change elements in the array
+friends[2] = 'Jay';
+console.log(friends[2]);
+
+// variables as elements in an array
+const firstName1 = 'Jonas';
+const jonas = [firstName1, 'Schmedtmann', 2037 - 1991];
+console.log(jonas);
+
+// an array inside of an array
+const jonas2 = [firstName1, 'Schmedtman', 2037 -1991, friends];
+console.log(jonas2[3]);
+
+// short exercise
+const calcAge10 = function(birthYear){
+    return 2037 - birthYear;
+};
+const years1 = [1990, 1967, 2002, 2010, 2018];
+const retAge1 = calcAge10(years1[0]);
+const retAge2 = calcAge10(years1[1]);
+const retAge3 = calcAge10(years1[2]);
+const retAge4 = calcAge10(years1[3]);
+const retAge5 = calcAge10(years1[4]);
+console.log(`The retirement ages are ${retAge1},${retAge2},${retAge3},${retAge4},${retAge5}.`);
+
+// trick to adjust the starting index number to 1
+const adjRetAge1 = calcAge10(years1[years1.length - 1]);
+
+// functions as elements in an array
+const ages1 = [calcAge10(years1[0]), calcAge10(years1[1]), calcAge10(years1[2]), calcAge10(years1[3]), calcAge10(years1[4])];
+console.log(ages1[1])
+
+// Array Methods 
+const friends1 = ['Michael', 'Steven', 'Peter'];
+
+// add an element
+friends1.push('Jay');
+console.log(friends1);
+
+// assign the new lenght to a variable
+const newLength1 = friends1.push('Jay');
+console.log(newLength1);
+
+// add elements to the beginning of an array
+friends1.unshift('John');
+console.log(friends1);
+
+// remove the last element from an array
+friends1.pop();
+console.log(friends1);
+
+// remove the first element of an array
+friends1.shift();
+console.log(friends1);
+
+// return the first index at which a given element can be found in the array
+console.log(friends1.indexOf('Steven'));
+
+// reutrn true or false if the element is in the array
+console.log(friends1.includes('Steven'));
+
+// use a conditional to test an array
+if(friends1.includes('Steven')){
+    console.log('Yes, Steven is there.');
+} else {
+    console.log('No');
+};
+
+// Assignment: arrays
+function calcPerctWorld(perct){
+    return `${(((perct / 9000).toFixed(3)) * 100)} percent`;
+}
+const populations = [350,1400,38,144];
+if (populations.length === 4){
+    console.log(`The array has lenght 4.`); 
+} else {
+    console.log("The array does not have a length of 4."); 
+};
+const perctUSA = calcPerctWorld(populations[0]);
+const perctChina = calcPerctWorld(populations[1]);
+const perctCanada = calcPerctWorld(populations[2]);
+const perctRussia = calcPerctWorld(populations[3]);
+const percentages = [perctUSA,perctChina,perctCanada,perctRussia];
+console.log(percentages);
+
+// Assignment: basic array methods
+const neighbors = ['Togo', 'Burkina Faso', 'Cote d\'Ivoire'];
+console.log(neighbors);
+neighbors.push('Utopia');
+console.log(neighbors);
+neighbors.pop();
+console.log(neighbors);
+if (neighbors.includes('Germany')){
+    console.log('Probably not a central European country.');
+} else if (neighbors[0] === 'Togo'){
+    neighbors.unshift('Sweden');
+    console.log(neighbors);
+};
+console.log(neighbors);
 */
 
 
