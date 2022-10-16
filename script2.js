@@ -261,6 +261,87 @@ if (neighbors.includes('Germany')){
     console.log(neighbors);
 };
 console.log(neighbors);
+
+// Introduction to objects
+// Object create key, value pairs
+const Jonas = {
+    firstName: 'Jonas',
+    lastName: 'Schmedtmann',
+    age: 2037 - 1991,
+    job: 'teacher',
+    friends: ['Michael','Peter','Steven']
+};
+console.log(Jonas);
+
+// Dot vs. Bracket Notation
+// Get the properties from an object using a dot and the key
+console.log(Jonas.lastName);
+
+// Get the properties from an object using a key inside brackets 
+console.log(Jonas['lastName']);
+
+// Create variables from objects
+const nameKey = 'Name';
+console.log(Jonas['first' + nameKey]);
+console.log(Jonas['last' + nameKey]);
+
+const interestedIN = prompt('What do you want to know about Jonas? Choose between firstName, \
+lastName, age, job, and friends');
+
+// Using the dot to  access a property of an object that does not exist results in 'undefined'
+console.log(Jonas.interestedIN); // output is undefined
+
+// Use the bracket to access the key value
+console.log(Jonas[interestedIN]);
+
+// create a custom value when the user attempts to access a property that does not exist
+// Truthy or Falsy value
+if(Jonas[interestedIN]){
+    console.log(Jonas[interestedIN]);
+} else {
+    console.log('Wrong request! Choose between firstName, lastName, age, job, and friends');
+};
+
+// Add new properties to the object
+Jonas.location = 'Portugal';
+Jonas['twitter'] = '@jonasschmedtman';
+console.log(Jonas);
+
+// Challenge - Write this sentence without hardcoding any of the values: Jonas, three, and Michael.
+// "Jonas has three friends, and his best friends is called Michael."
+console.log("\n----------coding challenge----------");
+console.log(`${Jonas.firstName} has ${Jonas.friends.length} friends, and his best friend is ${Jonas['friends'][0]}.`);
+
+// Assignment: Introduction to Objects
+const myCountry = {
+    country: 'United States of America',
+    capital: 'Washington, D.C.',
+    language: 'English',
+    population: 350,
+    neighbors: ['Canada','Mexico']
+};
+console.log(myCountry);
+
+// Assignment: Dot vs. Bracket Notation
+// Using the object from the previous assignment, log this sting to the console:
+// "The United States of America has 350 million English-speaking people, 2 neighbouring countries 
+// the capital is called  'Washington, D.C."
+const infoUSA = `The ${myCountry.country} has ${myCountry.population} million ${myCountry.language}-speaking people,
+${myCountry.neighbors.length} neighbouring countries and the capital is called ${myCountry.capital}`
+console.log(infoUSA);
+
+console.log('\n-----Increase the country population-----');
+let increasePop = Number(prompt("Enter the the population increase: "));
+console.log(typeof(increasePop))
+
+myCountry.population +=20
+const IncreasePopulationUSA = `The ${myCountry.country} has ${myCountry.population} million 
+${myCountry.language}-speaking people, ${myCountry.neighbors.length} neighbouring countries and 
+the capital is called ${myCountry.capital}`;
+console.log(IncreasePopulationUSA);
+
+myCountry.population -=20
+console.log(IncreasePopulationUSA);
 */
 
 
