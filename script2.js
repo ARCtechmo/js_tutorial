@@ -342,6 +342,98 @@ console.log(IncreasePopulationUSA);
 
 myCountry.population -=20
 console.log(IncreasePopulationUSA);
+
+// Object Methods - add functions to objects
+const jonas2 = {
+    firstName: 'Jonas',
+    lastName: 'Schmedtmann',
+    birthYear: 1991,
+    age: 2037 - 1991,
+    job: 'teacher',
+    friends: ['Michael','Peter','Steven'],
+    hasDriversLicense2: true,
+
+    // creates a method using a function expression
+    // a function declaration would return an error 
+    calcAge: function(birthYear){
+        return 2037 - birthYear
+    }
+};
+
+// Access the method
+// pass in the argument 'birthYear' by accessing the property from the object
+console.log(jonas2.calcAge(jonas2.birthYear));
+console.log(jonas2['calcAge'](jonas2['birthYear']));
+
+// Object Methods - Access object methods using the 'this' keyword
+// 'this' keyword directly accessess an object property intead of using an argument
+const jonas3 = {
+    firstName: 'Jonas',
+    lastName: 'Schmedtmann',
+    birthYear: 1991,
+    age: 2037 - 1991,
+    job: 'teacher',
+    friends: ['Michael','Peter','Steven'],
+    hasDriversLicense2: true,
+
+    // read 'birthyear' directly from the object itself without using an argument
+    calcAge2: function(birthYear){
+        console.log(this); // 'this' keyword points to the object jonas3
+        return 2037 - this.birthYear;
+    }
+};
+console.log(jonas3.calcAge2());
+
+// Object Methods - create a property using the 'this' keyword
+const jonas4 = {
+    firstName: 'Jonas',
+    lastName: 'Schmedtmann',
+    birthYear: 1991,
+    age: 2037 - 1991,
+    job: 'teacher',
+    friends: ['Michael','Peter','Steven'],
+    hasDriversLicense2: true,
+
+    // use 'this' to create an age property 
+    calcAge3: function(){
+        this.age = 2035 - this.birthYear; // change the date
+        return this.age;
+    }
+};
+console.log(jonas4.calcAge3());
+console.log(jonas4.age);
+
+// Assignment: Object Methods
+const MyCountry2 = {
+    country: 'United States of America',
+    capital: 'Washington, D.C.',
+    language: 'English',
+    population: 350,
+    neighbors: ['Canada','Mexico'],
+
+    // method to describe your country
+    describe: function(){
+        const countryDescription = `The ${this.country} has a population of ${this.population} \
+        million, the capital is ${this.capital}, \
+        and our neighbors are ${this.neighbors[0]} and ${this.neighbors[1]}.`
+        return countryDescription;
+    },
+
+    // method 
+    checkIsland: function(){
+        const isIsland = `The ${this.country} ${this.neighbors.length > 0 ? 'has' : 'does not have'} neighbors.`;
+        return isIsland;
+    },
+
+    checkIsland2: function(){
+        this.island2 = this.neighbors.length === 0 ? true : false;
+        return this.island2
+    }
+
+};
+console.log(MyCountry2.describe());
+console.log(MyCountry2.checkIsland());
+console.log(MyCountry2.checkIsland2());
 */
 
 
