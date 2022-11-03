@@ -434,6 +434,87 @@ const MyCountry2 = {
 console.log(MyCountry2.describe());
 console.log(MyCountry2.checkIsland());
 console.log(MyCountry2.checkIsland2());
+
+// Iterations: the For Loop
+
+// for loop keeps running while condition is TRUE
+for(let rep = 1; rep <=10; rep++){
+    console.log(`Lifting weights repetition ${rep}`)
+}
+
+// Looping Arrays, Breaking, and Continuing
+
+// Use a loop to read values from an array 
+const jonasArray = [ 
+    'Jonas',
+    'Schmedtmann',
+    2037 - 1991,
+    'teacher',
+    ['Michael','Peter','Steven']
+];
+
+for(let i = 0; i < jonasArray.length; i++){
+    console.log(jonasArray[i])
+};
+
+// create a new array that contains all of the types for each element
+const typeArray = [];
+for(let i = 0; i < jonasArray.length; i++){
+
+    //fill types of array method 1
+    typeArray.push(typeof jonasArray[i])
+
+};
+for(let i = 0; i < typeArray.length; i++){
+    console.log(typeArray[i])
+};
+
+console.log('\r\r')
+// A different way to do it
+// create a new array that contains all of the types for each element
+const typeArray2 = [];
+for(let i = 0; i < jonasArray.length; i++){
+    console.log(jonasArray[i], typeof jonasArray[i]);
+
+    // fill types of array method 2
+    typeArray2[i] = typeof jonasArray[i];
+};
+console.log(typeArray2);
+
+// loop through the array and append the ages to the 'ages' array
+const years = [1991, 2007, 1969, 2020];
+const ages = [];
+for(let i =0; i < years.length; i++){
+    const age = 2037 - years[i];
+    ages.push(age);
+};
+console.log(years);
+console.log(ages);
+
+
+// continue and break statements
+const jonasArray = [ 
+    'Jonas',
+    'Schmedtmann',
+    2037 - 1991,
+    'teacher',
+    ['Michael','Peter','Steven']
+];
+
+// only print the elements that are strings 
+console.log('------Only Strings------');
+for(let i = 0; i < jonasArray.length; i++){
+    if(typeof jonasArray[i] !== 'string') continue;
+    console.log(jonasArray[i], typeof jonasArray[i]);
+};
+
+// break statement
+// log no other elements after you find a number
+console.log('-----Break with Number-----');
+for(let i = 0; i < jonasArray.length; i++){
+    if(typeof jonasArray[i] === 'number') break;
+        console.log(jonasArray[i], typeof jonasArray[i]);
+};
 */
 
 
