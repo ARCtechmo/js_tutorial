@@ -515,6 +515,32 @@ for(let i = 0; i < jonasArray.length; i++){
     if(typeof jonasArray[i] === 'number') break;
         console.log(jonasArray[i], typeof jonasArray[i]);
 };
+
+// Assignment: Iteration -  The for Loop
+// use a loop to log votes
+for(let i =1; i <=50; i++){
+    console.log(`Voter number ${i} is currently voting.`)
+}
+
+// Assignment: Looping Arrays, Breaking and Continuing
+const populations = [350000000, 38000000, 132000000, 69000000]
+if(populations.length === 4){
+    console.log("true")
+} else{
+    console.log("false")
+};
+
+const percentages2 = []
+const worldPop = 7250000000
+
+function calcPerctWorld1(){
+    for(let i = 0; i < populations.length; i++){
+        const percent2 = (populations[i] / worldPop).toFixed(4);
+        percentages2.push(percent2);
+    }
+    return percentages2;
+};
+console.log(calcPerctWorld1());
 */
 
 
