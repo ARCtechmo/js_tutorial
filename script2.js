@@ -541,6 +541,50 @@ function calcPerctWorld1(){
     return percentages2;
 };
 console.log(calcPerctWorld1());
+
+// Looping Backwards and loops in loops
+const jonasArray = [ 
+    'Jonas',
+    'Schmedtmann',
+    2037 - 1991,
+    'teacher',
+    ['Michael','Peter','Steven']
+];
+for(let i = jonasArray.length - 1; i >= 0; i--){
+    console.log(i, jonasArray[i])
+};
+
+// Loops in loops
+for(let exercise = 1; exercise < 4; exercise++){
+    console.log(`--------Starting Exercise ${exercise}`)
+
+    for(let rep = 1; rep < 6; rep++){
+        console.log(`Exercise ${exercise}: Lifting weights repetition ${rep}`)
+    };
+};
+
+// While loop
+// compare the for loop and while loops
+for(let rep = 1; rep <=10; rep++){
+    console.log(`For loop: lift weights repetition ${rep}`);
+};
+console.log('\r\r')
+let rep = 1
+while(rep <=10){
+    console.log(`While Loop: lift weights repetition ${rep}`);
+    rep++
+};
+
+// While Loop  - Random Variable game
+// Roll a die and keep rolling while the die is not 6
+let dice = Math.trunc(Math.random() * 6) + 1;
+while(dice !== 6){
+    console.log(`You rolled a ${dice}.`);
+    
+    // ** avoid an infinite loop by assigning dice a new value
+    dice = Math.trunc(Math.random() * 6) + 1;
+    if(dice === 6) console.log('Loop is ending...');
+};
 */
 
 
