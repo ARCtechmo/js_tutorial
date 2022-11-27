@@ -1,0 +1,38 @@
+{
+  "editor.fontSize": 16,
+  "files.enableTrash": false,
+  "files.autoSave": "onWindowChange",
+  "window.zoomLevel": 1,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+
+  "todohighlight.isEnable": true,
+  "todohighlight.isCaseSensitive": true,
+  "todohighlight.keywords": [
+    {
+      "text": "BUG",
+      "color": "#333",
+      "backgroundColor": "red"
+    },
+    {
+      "text": "TASK",
+      "color": "#333",
+      "backgroundColor": "yellow"
+    },
+    {
+      "text": "TODO",
+      "color": "#333",
+      "backgroundColor": "green"
+    },
+    {
+      "text": "START HERE NEXT",
+      "color": "#333",
+      "backgroundColor": "yellow"
+    },
+    {
+      "text": "FIXME",
+      "color": "#333",
+      "backgroundColor": "orange"
+    }
+  ]
+}
