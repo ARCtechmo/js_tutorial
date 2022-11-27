@@ -7,7 +7,7 @@
   "editor.formatOnSave": true,
 
   "todohighlight.isEnable": true,
-  "todohighlight.isCaseSensitive": true,
+  "todohighlight.isCaseSensitive": false,
   "todohighlight.keywords": [
     {
       "text": "BUG",
