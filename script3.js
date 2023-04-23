@@ -52,6 +52,7 @@
 // "this" takes the value of (points to) the "owner" of the function
 // "this" is undefined in simple fnction calls
 
+/*
 // this: a global variable
 console.log(this)
 
@@ -85,3 +86,97 @@ const matilda = {
 }
 matilda.calcAge = JohnDoe.calcAge
 console.log(matilda.calcAge())
+*/
+
+// arrow function does not get its own 'this' keyword
+// const johnDoe = {
+//   firstName: 'Jonas',
+//   year: '1991',
+//   calcAge: function () {
+//     console.log(this);
+//     console.log(2037 - this.year);
+//   },
+//   greet: () => console.log(`Hey ${this.firstName}`),
+// };
+// johnDoe.greet();
+// console.log(this.firstName);
+
+/*
+// function inside a method
+const johnDoe = {
+  firstName: 'Jonas',
+  year: '1991',
+  calcAge: function () {
+    console.log(2037 - this.year);
+
+    // 'this' keyword is undefined inside a regular function
+    // const isMillenial = function () {
+    //   console.log(this.year >= 1981 && this.year <= 1996);
+    // };
+    // isMillenial(); // function call returns undefined
+
+    // 'this' keyword uses its parent scope inside an arrow function
+    const isMillenial = () => {
+      console.log(this.year >= 1981 && this.year <= 1996);
+    };
+    isMillenial();
+  },
+  greet: () => {
+    console.log(`Hey ${this.firstName}`);
+  },
+};
+*/
+
+/*
+// arguments in functions
+const addExpr2 = function (a, b) {
+	console.log(arguments);
+	return a + b;
+};
+console.log(addExpr2(1, 2, 3));
+*/
+
+/*
+// primitives types vs reference (objects) types
+let age = 30
+let oldAge = age
+age = 31
+console.log(age)
+console.log(oldAge)
+
+const me = {
+	name: "JonnDoe",
+	age: 30,
+}
+const friend = me
+friend.age = 27
+console.log("friend", friend)
+console.log("me", me)
+
+let lastName = "Williams"
+let oldLastName = lastName
+lastName = "Davis"
+console.log(lastName, oldLastName)
+
+const jessica = {
+	firstName: "Jessica",
+	lastName: "Williams",
+	age: 27,
+}
+const marriedJessica = jessica
+marriedJessica.lastName = "Davis"
+console.log("Before marriage: ", jessica)
+console.log("After marriage: ", marriedJessica)
+
+// copying objects - shallow clone on the first level only
+// create a new empty object and merge it with an existing object
+const jessica2 = {
+	firstName: "Jessica",
+	lastName: "Williams",
+	age: 27,
+}
+const jessicaCopy = Object.assign({}, jessica2)
+jessicaCopy.lastName = "Davis"
+console.log("Before marriage: ", jessica2)
+console.log("After marriage: ", jessicaCopy)
+*/
