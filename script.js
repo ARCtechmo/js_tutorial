@@ -1,31 +1,194 @@
-// less on variables and values
+"use strict";
 
-// display some output in the browser
-console.log(40 + 8 + 23 - 10);
-console.log('Jonas');
-console.log(23);
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+// BANKIST APP
 
-// declare a variable
-let firstName = "Jonas"
-console.log("The first name is", firstName);
-console.log("Repeat the first name", firstName);
+// Data
+const account1 = {
+	owner: "Jonas Schmedtmann",
+	movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
+	interestRate: 1.2, // %
+	pin: 1111,
+};
 
-// conventions and rules for naming variables
-console.log('use camelCase for variable names');
-console.log('firstName lastName eyeColor');
+const account2 = {
+	owner: "Jessica Davis",
+	movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
+	interestRate: 1.5,
+	pin: 2222,
+};
 
-// convention and rules for function 
-console.log('use camelCase for function names');
-console.log('myFunction');
+const account3 = {
+	owner: "Steven Thomas Williams",
+	movements: [200, -200, 340, -300, -20, 50, 400, -460],
+	interestRate: 0.7,
+	pin: 3333,
+};
 
-// do not start a variable name with a number
-console.log('do not start a variable with a number');
-console.log('This generates an error message: 3years = 3');
+const account4 = {
+	owner: "Sarah Smith",
+	movements: [430, 1000, 700, 50, 90],
+	interestRate: 1,
+	pin: 4444,
+};
 
-// variable can only contain the following:
-console.log('abcABC0-9, __ , $ are permitted in variable names');
+const accounts = [account1, account2, account3, account4];
 
-// mathematical constants are written in UPPERCASE
-console.log('mathematical constants are written in UPPERCASE');
-console.log('let PI = 3.14159');
-let PI = 3.14159
+// Elements
+const labelWelcome = document.querySelector(".welcome");
+const labelDate = document.querySelector(".date");
+const labelBalance = document.querySelector(".balance__value");
+const labelSumIn = document.querySelector(".summary__value--in");
+const labelSumOut = document.querySelector(".summary__value--out");
+const labelSumInterest = document.querySelector(".summary__value--interest");
+const labelTimer = document.querySelector(".timer");
+
+const containerApp = document.querySelector(".app");
+const containerMovements = document.querySelector(".movements");
+
+const btnLogin = document.querySelector(".login__btn");
+const btnTransfer = document.querySelector(".form__btn--transfer");
+const btnLoan = document.querySelector(".form__btn--loan");
+const btnClose = document.querySelector(".form__btn--close");
+const btnSort = document.querySelector(".btn--sort");
+
+const inputLoginUsername = document.querySelector(".login__input--user");
+const inputLoginPin = document.querySelector(".login__input--pin");
+const inputTransferTo = document.querySelector(".form__input--to");
+const inputTransferAmount = document.querySelector(".form__input--amount");
+const inputLoanAmount = document.querySelector(".form__input--loan-amount");
+const inputCloseUsername = document.querySelector(".form__input--user");
+const inputClosePin = document.querySelector(".form__input--pin");
+
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+// LECTURES
+
+const currencies = new Map([
+	["USD", "United States dollar"],
+	["EUR", "Euro"],
+	["GBP", "Pound sterling"],
+]);
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// array methods are simply functions attached to objects
+// arrays are objects and they get access to special built-in methods
+let arr = ["a", "b", "c", "d", "e"];
+
+// slice an array at index 2
+// does not affect the original array
+console.log(arr.slice(2)); // output ["c","d","e"]
+console.log(arr.slice(2, 4)); // output ["c","d"]
+console.log(arr.slice(-1)); // output ["e"]
+console.log(arr.slice(1, -2)); // output ["b","c"]
+
+// create a shallow copy
+console.log(arr.slice()); // output ["a", "b", "c", "d", "e"];
+console.log([...arr]); // output ["a", "b", "c", "d", "e"];
+console.log(...arr); // output a b c d e
+
+// splice method - changes the original array
+// console.log(arr.splice(2)); // output ["c","d","e"]
+console.log(arr); // ["a", "b"];
+
+// splice is commonly used to remove the last element of an array
+console.log(arr.splice(-1));
+console.log(arr);
+
+// reverse method - mutates the original array
+const arr2 = ["j", "i", "h", "g", "f"];
+console.log(arr2.reverse()); // output ["f","g","h","i","j"]
+console.log(arr2); // output ["f","g","h","i","j"]
+
+// concat method
+const letters = arr.concat(arr2);
+console.log(letters); // output ["a", "b", "c", "d", "e","f","g","h","i","j"]
+console.log([...arr, ...arr2]); // output ["a", "b", "c", "d", "e","f","g","h","i","j"]
+
+// join method
+console.log(letters.join(" - ")); // output a - b - c - d - e - f - g - h - i - j
+
+// return index values old way vs at method
+const arr3 = [23, 11, 64];
+
+// common bracket notation to return an index value
+console.log(arr3[0]); // output 23
+
+// at method - returns an index value
+console.log(arr3.at(0)); // output 23
+
+// example with the at mehtod
+// find the value of last index of an array (assume you do not the array length is unknown)
+console.log(arr3[arr3.length - 1]); // output 64
+console.log(arr3.slice(-1)[0]); // output 64
+console.log(arr3.at(-1)); // output 64
+
+// at method works on strings
+console.log("Williamson".at(0)); // output W
+console.log("Williams".at(-1)); // output s
+
+// loop over arrays
+// traditional 'for of' loop vs forEach loop
+console.log("--------FOR OF LOOP over Array--------------");
+const movements2 = [200, 450, -400, 3000, -650, -130, 70, 1300];
+for (const movement of movements) {
+	if (movement > 0) {
+		console.log(`You deposited ${movement}`);
+	} else {
+		console.log(`You withdrew ${Math.abs(movement)}`);
+	}
+}
+console.log("------------FOR EACH--------------");
+// for each loop method
+// **IMPORTANT: You cannot break out of a 'forEach' loop
+movements2.forEach(function (movement) {
+	if (movement > 0) {
+		console.log(`You deposited ${movement}`);
+	} else {
+		console.log(`You withdrew ${Math.abs(movement)}`);
+	}
+});
+console.log("---------FOR OF LOOP with Counter----------");
+// loop over arrays
+// add a counter
+for (const [i, movement] of movements.entries()) {
+	if (movement > 0) {
+		console.log(`Movement ${i + 1} you deposited ${movement}`);
+	} else {
+		console.log(`Movement ${i + 1} you withdrew ${movement}`);
+	}
+}
+// **IMPORTANT: You cannot break out of a 'forEach' loop
+console.log("------------FOR EACH LOOP over Array with Counter--------------");
+movements2.forEach(function (movement, i, array) {
+	if (movement > 0) {
+		console.log(`Movement ${i + 1} you deposited ${movement}`);
+	} else {
+		console.log(`Movement ${i + 1} you withdrew ${Math.abs(movement)}`);
+	}
+});
+
+// FOR EACH on maps
+const currencies2 = new Map([
+	["USD", "United States dollar"],
+	["EUR", "Euro"],
+	["GBP", "Pound sterling"],
+]);
+currencies2.forEach(function (value, key, map) {
+	console.log(`${key}: ${value}`);
+});
+
+// FOR EACH on sets
+const currenciesUnique = new Set(["USD", "GBP", "USD", "EUR", "EUR"]);
+console.log(currenciesUnique); // output ["USD", "GBP", "EUR"]
+currenciesUnique.forEach(function (value, key, map) {
+	console.log(`${key}: ${value}`);
+});
+// output
+// USD: USD
+// GBP: GBP
+// EUR: EUR
+
+//////////////////////////////////////////////////////////////////////////////////////
