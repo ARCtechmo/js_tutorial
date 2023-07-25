@@ -79,6 +79,22 @@ const displayMovements = function (movements) {
 };
 displayMovements(account1.movements);
 console.log(containerMovements.innerHTML);
+
+// create user names
+// method 1: loop over the array and get the first letter
+
+const createUsernames = function (acct) {
+	acct.forEach(function (acct) {
+		acct.username = acct.owner
+			.toLowerCase()
+			.split(" ")
+			.map(function (name) {
+				return name[0];
+			})
+			.join("");
+	});
+};
+createUsernames(accounts);
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
