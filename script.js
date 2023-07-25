@@ -191,4 +191,35 @@ currenciesUnique.forEach(function (value, key, map) {
 // GBP: GBP
 // EUR: EUR
 
+// Array: data transformations
+// map, filter, reduce
+
+// map method - similar to the forEach method but returns a new array
+const numbers = [1, 2, 3, 4, 5];
+const doubleNumbers = numbers.map(function (number) {
+	return number * 2;
+});
+console.log(doubleNumbers); // output [2,4,6,8,10]
+
+const movements3 = [200, 450, -400, 3000, -650, -130, 70, 1300];
+const eurToUsd = 1.1;
+const movementsUSD = movements3.map(function (mov) {
+	return (mov * eurToUsd).toFixed(0);
+});
+console.log(movements3);
+console.log(movementsUSD);
+
+// compare to a "for of" loop
+const movementsUSDfor = [];
+for (const mov of movements3) {
+	movementsUSDfor.push((mov * eurToUsd).toFixed(0));
+}
+console.log(movementsUSDfor);
+
+// convert the map method to an arrow function
+const movementsUSDarrow = movements3.map((mov) => (mov * eurToUsd).toFixed(0));
+console.log(movementsUSDarrow);
+
+// map method: access the current index
+
 //////////////////////////////////////////////////////////////////////////////////////
