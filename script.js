@@ -220,6 +220,85 @@ console.log(movementsUSDfor);
 const movementsUSDarrow = movements3.map((mov) => (mov * eurToUsd).toFixed(0));
 console.log(movementsUSDarrow);
 
-// map method: access the current index
+// filter method returns indexes within an array that pass certain conditions
+// filter method example reuturn even numbers
+const number2 = [1, 2, 3, 4, 5];
+const evenNumbers = number2.filter(function (num) {
+	return num % 2 === 0;
+});
+console.log(evenNumbers); // output [2,4]
 
+// filter method example returns positive values in the array
+console.log(movements);
+const deposits = movements.filter(function (mov) {
+	return mov > 0;
+});
+console.log(deposits);
+
+// use a for of loop to return positive values
+const depositsFor = [];
+for (const mov of movements) {
+	if (mov > 0) {
+		depositsFor.push(mov);
+	}
+}
+console.log(depositsFor);
+
+// challenge: create an array of the withdrawals
+console.log(movements);
+const withdrawalsFor = [];
+for (const mov of movements) {
+	if (mov < 0) {
+		withdrawalsFor.push(mov);
+	}
+}
+console.log(withdrawalsFor); // output [-400, -650, -130]
+
+const withdrawals2 = movements.filter(function (mov) {
+	return mov < 0;
+});
+console.log(withdrawals2); // output [-400, -650, -130]
+
+// The reduce method turns an array in to a single value
+const numbers2 = [1, 2, 3, 4, 5];
+const sum = number2.reduce(function (accumlator, currentValue) {
+	return accumlator + currentValue;
+}, 0);
+console.log(sum);
+
+// reduce method - get the balance of the account
+// accumulator parameter is like a snowball
+// cur is the current value
+// 0 is the initial value of the accumulator
+console.log(movements);
+const balance = movements.reduce(function (accumulator, cur) {
+	return accumulator + cur;
+}, 0);
+console.log(balance); // output 3840
+
+// for of example
+let sum1 = 0;
+for (const num of movements) {
+	sum1 += num;
+}
+console.log(sum1); // output 3840
+
+// for loop with counter
+let sum2 = 0;
+for (let i = 0; i < movements.length; i++) {
+	sum2 += movements[i];
+}
+console.log(sum2); // output 3840
+
+// reduce method  - alter the final value
+// Maximum number
+console.log(movements);
+const max = movements.reduce(function (accumulator, currentValue) {
+	if (accumulator > currentValue) {
+		return accumulator;
+	} else {
+		return currentValue;
+	}
+}, movements[0]);
+console.log(max); // output 3000
 //////////////////////////////////////////////////////////////////////////////////////
