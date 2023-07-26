@@ -68,9 +68,9 @@ const displayMovements = function (movements) {
 		const type = mov > 0 ? "deposit" : "withdrawal";
 
 		const html = `
-			<div class="movements__row">
-				<div class="movements__type movements__type--${type}">${i + 1} ${type}</div>
-				<div class="movements__date">3 days ago</div>
+		<div class="movements__row">
+		<div class="movements__type movements__type--${type}">${i + 1} ${type}</div>
+		<div class="movements__date">3 days ago</div>
 				<div class="movements__value">${mov}</div>
 			</div>
 		`;
@@ -82,6 +82,15 @@ console.log(containerMovements.innerHTML);
 
 // create user names
 // method 1: loop over the array and get the first letter
+
+// calcaulte the current balance
+const calcDisplayBalance = function (movements) {
+	const balance = movements.reduce(function (accumulator, currentValue) {
+		return accumulator + currentValue;
+	}, 0);
+	labelBalance.textContent = `${balance} EUR`;
+};
+calcDisplayBalance(account1.movements);
 
 const createUsernames = function (acct) {
 	acct.forEach(function (acct) {
@@ -95,6 +104,7 @@ const createUsernames = function (acct) {
 	});
 };
 createUsernames(accounts);
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
