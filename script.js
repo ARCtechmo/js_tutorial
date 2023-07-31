@@ -301,4 +301,5 @@ const max = movements.reduce(function (accumulator, currentValue) {
 	}
 }, movements[0]);
 console.log(max); // output 3000
+
 //////////////////////////////////////////////////////////////////////////////////////
