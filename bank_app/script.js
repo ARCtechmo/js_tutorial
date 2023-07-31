@@ -71,7 +71,7 @@ const displayMovements = function (movements) {
 		<div class="movements__row">
 		<div class="movements__type movements__type--${type}">${i + 1} ${type}</div>
 		<div class="movements__date">3 days ago</div>
-				<div class="movements__value">${mov}</div>
+				<div class="movements__value">${mov}\u20AC</div>
 			</div>
 		`;
 		containerMovements.insertAdjacentHTML("afterbegin", html);
@@ -88,9 +88,32 @@ const calcDisplayBalance = function (movements) {
 	const balance = movements.reduce(function (accumulator, currentValue) {
 		return accumulator + currentValue;
 	}, 0);
-	labelBalance.textContent = `${balance} EUR`;
+	labelBalance.textContent = `${balance}\u20AC`;
 };
 calcDisplayBalance(account1.movements);
+
+const calcDisplaySummary = function (movements) {
+	const incomes = movements
+		.filter((mov) => mov > 0)
+		.reduce((acc, mov) => acc + mov, 0);
+	labelSumIn.textContent = `${incomes}\u20AC`;
+
+	const out = movements
+		.filter((mov) => mov < 0)
+		.reduce((acc, mov) => acc + mov, 0);
+	labelSumOut.textContent = `${Math.abs(out)}\u20AC`;
+
+	const interest = movements
+		.filter((mov) => mov > 0)
+		.map((deposit) => (deposit * 1.2) / 100)
+		.filter((int, i, arr) => {
+			console.log(arr);
+			return int >= 1;
+		})
+		.reduce((acc, int) => acc + int, 0);
+	labelSumInterest.textContent = `${interest}\u20AC`;
+};
+calcDisplaySummary(account1.movements);
 
 const createUsernames = function (acct) {
 	acct.forEach(function (acct) {
@@ -105,16 +128,10 @@ const createUsernames = function (acct) {
 };
 createUsernames(accounts);
 
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-// LECTURES
-
-const currencies = new Map([
-	["USD", "United States dollar"],
-	["EUR", "Euro"],
-	["GBP", "Pound sterling"],
-]);
-
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-
-/////////////////////////////////////////////////
+// Pipeline
+// convert all deposits to USD
+const eurToUSD = 1.1;
+const totalDepositsUSD = movements
+	.filter((mov) => mov > 0)
+	.map((mov) => mov * eurToUSD)
+	.reduce((acc, mov) => accc + mov, 0);
