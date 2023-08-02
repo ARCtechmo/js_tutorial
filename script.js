@@ -302,4 +302,28 @@ const max = movements.reduce(function (accumulator, currentValue) {
 }, movements[0]);
 console.log(max); // output 3000
 
+// find method
+// returns the first element in the array that satisfies the condition
+const firstWithdrawal = movements.find((mov) => mov < 0);
+console.log(movements);
+console.log(firstWithdrawal);
+
+// find method
+// use a named function instead of an arrow function
+function isNegative(mov) {
+	return mov < 0;
+}
+const firstWithdrawal2 = movements.find(isNegative);
+console.log(firstWithdrawal2);
+
+// find method - find a unique name
+const account = accounts.find((acc) => acc.owner === "Jessica Davis");
+console.log(account);
+
+for (const acc of accounts) {
+	if (acc.owner === "Jessica Davis") {
+		console.log(acc);
+	}
+}
+
 //////////////////////////////////////////////////////////////////////////////////////
