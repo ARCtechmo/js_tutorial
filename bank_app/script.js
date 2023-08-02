@@ -77,7 +77,6 @@ const displayMovements = function (movements) {
 		containerMovements.insertAdjacentHTML("afterbegin", html);
 	});
 };
-displayMovements(account1.movements);
 console.log(containerMovements.innerHTML);
 
 // create user names
@@ -90,22 +89,21 @@ const calcDisplayBalance = function (movements) {
 	}, 0);
 	labelBalance.textContent = `${balance}\u20AC`;
 };
-calcDisplayBalance(account1.movements);
 
-const calcDisplaySummary = function (movements) {
-	const incomes = movements
+const calcDisplaySummary = function (acc) {
+	const incomes = acc.movements
 		.filter((mov) => mov > 0)
 		.reduce((acc, mov) => acc + mov, 0);
 	labelSumIn.textContent = `${incomes}\u20AC`;
 
-	const out = movements
+	const out = acc.movements
 		.filter((mov) => mov < 0)
 		.reduce((acc, mov) => acc + mov, 0);
 	labelSumOut.textContent = `${Math.abs(out)}\u20AC`;
 
-	const interest = movements
+	const interest = acc.movements
 		.filter((mov) => mov > 0)
-		.map((deposit) => (deposit * 1.2) / 100)
+		.map((deposit) => (deposit * acc.interestRate) / 100)
 		.filter((int, i, arr) => {
 			console.log(arr);
 			return int >= 1;
@@ -113,7 +111,6 @@ const calcDisplaySummary = function (movements) {
 		.reduce((acc, int) => acc + int, 0);
 	labelSumInterest.textContent = `${interest}\u20AC`;
 };
-calcDisplaySummary(account1.movements);
 
 const createUsernames = function (acct) {
 	acct.forEach(function (acct) {
@@ -130,8 +127,41 @@ createUsernames(accounts);
 
 // Pipeline
 // convert all deposits to USD
-const eurToUSD = 1.1;
-const totalDepositsUSD = movements
-	.filter((mov) => mov > 0)
-	.map((mov) => mov * eurToUSD)
-	.reduce((acc, mov) => accc + mov, 0);
+// const eurToUSD = 1.1;
+// const totalDepositsUSD = movements
+// .filter((mov) => mov > 0)
+// .map((mov) => mov * eurToUSD)
+// .reduce((acc, mov) => accc + mov, 0);
+
+// Event handler
+let currentAccount;
+btnLogin.addEventListener("click", function (e) {
+	// prevet form for submitting
+	e.preventDefault();
+	currentAccount = accounts.find(
+		(acc) => acc.username === inputLoginUsername.value
+	);
+	console.log(currentAccount);
+	if (currentAccount?.pin === Number(inputLoginPin.value)) {
+		console.log("LOGIN");
+
+		// display UI and message
+		labelWelcome.textContent = `Welcome Back, ${
+			currentAccount.owner.split(" ")[0]
+		}`;
+		containerApp.style.opacity = 100;
+
+		// clear input fields
+		inputLoginUsername.value = inputLoginPin.value = "";
+		inputLoginPin.blur();
+
+		// display movements
+		displayMovements(currentAccount.movements);
+
+		// display balance
+		calcDisplayBalance(currentAccount.movements);
+
+		// display summary
+		calcDisplaySummary(currentAccount);
+	}
+});
