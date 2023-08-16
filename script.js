@@ -326,4 +326,48 @@ for (const acc of accounts) {
 	}
 }
 
+// some and includes methods
+console.log(movements);
+console.log(movements.includes(-130));
+const anyDeposits = movements.some((mov) => mov > 0);
+console.log(anyDeposits);
+
+// condition with some method
+console.log(movements.some((mov) => mov === -130));
+
+// every method
+console.log(movements.every((mov) => mov > 0));
+console.log(account4.movements.every((mov) => mov > 0));
+
+// every method using separate callback functinos
+const deposit = (mov) => mov > 0;
+console.log(movements.some(deposit));
+console.log(movements.filter(deposit));
+console.log(movements.every(deposit));
+
+// flat method
+const arr1 = [1, 2, [3, 4]];
+console.log(arr1.flat());
+
+// flat method with a deep nesting
+// flat with 2 levels deep
+const arrDeep = [
+	[[1, 2], 3],
+	[4, [(5, 6)], 7, 8],
+];
+console.log(arrDeep.flat(2));
+
+// flatMap method
+// combines flat and map but only goes one level deep
+// flat
+const overalBalance = accounts
+	.map((acc) => acc.movements)
+	.flat()
+	.reduce((acc, mov) => acc + mov, 0);
+console.log(overalBalance);
+
+const overalBalance2 = accounts
+	.flatMap((acc) => acc.movements)
+	.reduce((acc, mov) => acc + mov, 0);
+console.log(overalBalance2);
 //////////////////////////////////////////////////////////////////////////////////////
