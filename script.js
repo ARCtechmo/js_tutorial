@@ -395,4 +395,42 @@ movements.sort((a, b) => {
 });
 console.log(movements);
 
+// create and fill arrays
+// create a new array with 7 empty slots (not very useful)
+const x = new Array(7);
+console.log(x); // output [<7 empty slots>]
+
+// call the fill method on an empty array
+// fill(value, start, end)
+const f = new Array(7);
+f.fill(1);
+console.log(f); // output [1,1,1,1,1,1,1]
+
+// specifiy an index
+// start an index 3 and fill with 0s
+// fill(value, start, end)
+const g = new Array(7);
+g.fill(0, 3);
+console.log(g); // output: [ <3 empty slots>, 1, 1, <2 empty slots> ]
+
+// recreate an array
+// Array.from() method
+const foo = Array.from("foo");
+console.log(foo); // output: [ "f", "o", "o" ]
+
+// Use the Array.from() method to recreate an array
+const z = Array.from({length: 7}, () => 1);
+console.log(z);
+
+// create an array from 1-7
+const r = Array.from({length: 7}, (_, i) => i + 1);
+console.log(r);
+
+// example of Array.from() method combined with a function
+function multiplyByTwo(value) {
+	return value * 2;
+}
+const numbers3 = [1, 2, 3, 4, 5];
+const doubleNumbers3 = Array.from(numbers3, multiplyByTwo);
+console.log(doubleNumbers3); // output: [ 2, 4, 6, 8, 10 ]
 //////////////////////////////////////////////////////////////////////////////////////
