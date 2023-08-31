@@ -286,3 +286,50 @@ console.log(Number.isFinite(20 / 0)); // output: false
 // CHECK IF A VALUE IS AN INTEGER - USE .isInteger()
 console.log(Number.isInteger(20)); // output: true
 console.log(Number.isInteger("20")); // output: false
+
+// Math and rounding
+console.log(Math.sqrt(25));
+console.log(25 ** (1 / 2));
+console.log(8 ** (1 / 3));
+console.log(Math.max(5, 18, 23, 11, 2));
+console.log(Math.min(5, 18, 23, 11, 2));
+
+// pi and radius of a circle
+const radius = 1;
+console.log(Math.PI);
+console.log(2 * Math.PI * radius);
+
+// truncate and round numbers
+console.log(Math.trunc(25.3));
+console.log(Math.round(25.5));
+
+// floor and ceiling work similar to truncate and round
+// floor works with both positive and negative integers
+console.log(Math.ceil(23.9));
+console.log(Math.floor(23.5));
+console.log(Math.floor(-23.5));
+
+// generate random integers
+const randomInt = (min, max) => Math.floor(Math.random() * (max - min) + min);
+console.log(`random int: ${randomInt(10, 20)}`);
+
+// rounding decimals
+console.log((2.7).toFixed(3));
+console.log((2.35).toFixed(2));
+
+// remainder operator
+console.log(5 % 2);
+console.log(8 % 2);
+
+// even number - remainder 0
+console.log(6 % 2);
+const isEven = (n) => (n % 2 === 0 ? "even" : "odd");
+console.log(isEven(8));
+console.log(isEven(5));
+
+// numeric separators - underscore
+// only use underscores with numbers; not strings
+const diameter = 287_460_000_000;
+console.log(diameter);
+const priceCents = 345_90;
+console.log(priceCents);
