@@ -333,3 +333,53 @@ const diameter = 287_460_000_000;
 console.log(diameter);
 const priceCents = 345_90;
 console.log(priceCents);
+
+// max value in JavaScript
+// 9007199254740991 is the largest value you can have in JavaScript
+// anything beyond 9007199254740991 is considered unsafe
+console.log(Number.MAX_SAFE_INTEGER);
+
+// BigInt() function
+console.log(BigInt(46546547897978976554631213131231398764));
+console.log(20n > 15); // true
+console.log(20n === 20); // false
+console.log(typeof 20n); // BigInt
+
+// Divisions
+console.log(11n / 3n);
+console.log(10 / 3);
+
+// create dates
+const now = new Date();
+console.log(now);
+console.log(new Date("Sept 01 2023 13:20:05"));
+console.log(new Date(account1.movementsDates[0]));
+console.log("--------------");
+console.log(new Date(2023, 9, 31));
+console.log("-----time elapsed since Unix Time: Jan 1, 1970-----");
+console.log(new Date(0));
+
+// working with dates
+const future = new Date(2037, 10, 19, 15, 23);
+console.log(future);
+console.log(future.getFullYear()); // ** always use getFullYear()
+console.log(future.getMonth());
+console.log(future.getDate());
+console.log(future.getHours());
+console.log(future.getMinutes());
+console.log(future.getSeconds());
+console.log(future.toISOString());
+console.log(future.getTime());
+
+// get a timestamp
+console.log("-----timestamp-----");
+console.log(Date.now());
+
+// perform calculations with dates
+console.log("-----date calculations");
+const future1 = new Date(2037, 10, 19, 15, 23);
+console.log(+future);
+const calcDaysPassed = (date1, date2) =>
+	Math.abs(date1 - date2) / (1000 * 60 * 60 * 24);
+const days1 = calcDaysPassed(new Date(2037, 3, 14), new Date(2037, 3, 4));
+console.log(days1);
