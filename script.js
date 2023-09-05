@@ -383,3 +383,46 @@ const calcDaysPassed = (date1, date2) =>
 	Math.abs(date1 - date2) / (1000 * 60 * 60 * 24);
 const days1 = calcDaysPassed(new Date(2037, 3, 14), new Date(2037, 3, 4));
 console.log(days1);
+
+// timers
+// note JavaScript does not pause when it reaches this line
+setTimeout(() => console.log("Here is your pizza."), 3000);
+console.log("Waiting...");
+
+// timers
+const ingredients = ["olives", "ham"];
+const pizzaTimer = setTimeout(
+	(ing1, ing2) => console.log(`Here is your pizza with ${ing1} and ${ing2}`),
+	3000,
+	...ingredients
+);
+console.log("waiting...");
+if (ingredients.includes("spinach")) clearTimeout(pizzaTimer);
+
+// display a clock
+// setInterval(function () {
+// 	const now = new Date();
+// 	console.log(now);
+// }, 1000);
+console.log("end");
+
+// initialize and display the clock
+function updateClock() {
+	// 1. initialize the clock
+	const now = new Date();
+	const hours = String(now.getHours()).padStart(2, "0");
+	const minutes = String(now.getMinutes()).padStart(2, "0");
+	const seconds = String(now.getSeconds()).padStart(2, "0");
+
+	// 2a. display current time (HTML only)
+	// document.getElementById("clock").innerText = `${hours}:${minutes}:${seconds}`;
+
+	// 2b. display current time (console)
+	console.log(`${hours}:${minutes}:${seconds}`);
+}
+
+// initialize update
+// updateClock();
+
+// 3. update the clock every second
+// setInterval(updateClock, 1000);
